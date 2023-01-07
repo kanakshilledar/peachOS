@@ -71,7 +71,7 @@ load32:
     mov gs, ax
     mov ss, ax
     mov ebp, 0x00200000
-    mov esp, ebp
+    mov esp, ebp            
     jmp $
 
 times 510-($ - $$) db 0
