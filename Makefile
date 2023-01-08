@@ -1,6 +1,6 @@
 FILES = ./build/kernel.asm.o
 
-all: ./boot/boot.bin $(FILES)
+all: ./bin/boot.bin $(FILES)
 	dd if=./bin/boot.bin >> ./bin/os.bin
 	
 ./bin/boot.bin: ./src/boot/boot.asm
