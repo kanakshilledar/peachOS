@@ -59,3 +59,4 @@ void kernel_main() {
     print("\nHello, World!");
 
     idt_init(); // initialize the interrupt descriptor table
+}
