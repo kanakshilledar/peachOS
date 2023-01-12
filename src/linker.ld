@@ -8,7 +8,7 @@ SECTIONS {
 
     .rodata : ALIGN(4096) {
         *(.rodata)
-    } 
+    }
 
     .data : ALIGN(4096) {
         *(.data)

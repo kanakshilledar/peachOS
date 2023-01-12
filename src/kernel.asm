@@ -12,12 +12,12 @@ _start:
     mov gs, ax
     mov ss, ax
     mov ebp, 0x00200000
-    mov esp, ebp         
-    
+    mov esp, ebp
+
 ; enabling A20 line
-    in al, 0x92         
+    in al, 0x92
     or al, 2
-    out 0x92, al   
+    out 0x92, al
 
     call kernel_main
     jmp $

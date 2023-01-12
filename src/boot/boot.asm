@@ -29,9 +29,7 @@ step2:
     mov eax, cr0
     or eax, 0x1
     mov cr0, eax
-    ; TODO
     jmp CODE_SEG:load32
-    jmp $
 
 ; GDT
 gdt_start:
@@ -49,7 +47,7 @@ gdt_code:           ; CS should point to this
     db 0            ; base 24-31 bits
 
 ; offset 0x10
-gdt_data:           ; DS, SS, ES, FS, GS 
+gdt_data:           ; DS, SS, ES, FS, GS
     dw 0xffff       ; Segment limit first 0-15 bits
     dw 0            ; Base 0-15 bits
     db 0            ; Base 16-23 bits
@@ -69,7 +67,7 @@ load32:
     mov ecx, 100
     mov edi, 0x0100000          ; equivalent of 1M
     call ata_lba_read
-    jmp CODE_SEG:0x0100000     ; 
+    jmp CODE_SEG:0x0100000     ;
 
 ; implementing hdd driver
 ata_lba_read:
@@ -117,7 +115,7 @@ ata_lba_read:
     jz .try_again
 
     ; we need to read 256 words at a time
-    mov eax,  256
+    mov ecx,  256
     mov dx, 0x1f0
     rep insw
     pop ecx
