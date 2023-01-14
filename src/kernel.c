@@ -1,6 +1,7 @@
 #include "kernel.h"
 #include "idt/idt.h"
 #include "io/io.h"
+#include "memory/heap/kheap.h"
 #include <stddef.h>
 #include <stdint.h>
 
@@ -58,5 +59,6 @@ void kernel_main() {
     terminal_initialize();
     print("\nHello, World!");
 
+    kheap_init(); // initialize kernel heap
     idt_init(); // initialize the interrupt descriptor table
 }
