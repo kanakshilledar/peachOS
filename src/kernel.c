@@ -59,6 +59,7 @@ void kernel_main() {
     terminal_initialize();
     print("\nHello, World!");
 
-    kheap_init(); // initialize kernel heap
-    idt_init(); // initialize the interrupt descriptor table
+    kheap_init();                       // initialize kernel heap
+    idt_init();                         // initialize the interrupt descriptor table
+    enable_interrupts();                // enable interrupts
 }
