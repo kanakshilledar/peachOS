@@ -64,6 +64,7 @@ void kernel_main() {
     print("\nHello, World!");
 
     kheap_init();                       // initialize kernel heap
+    disk_search_and_init();             // disk search and initialize
     idt_init();                         // initialize the interrupt descriptor table
     // setup paging
     kernel_chunk = paging_new_4gb(PAGING_IS_WRITABLE | PAGING_IS_PRESENT | PAGING_ACCESS_FROM_ALL);
@@ -71,8 +72,6 @@ void kernel_main() {
     paging_switch(paging_4gb_chunk_get_directory(kernel_chunk));
     enable_paging();                    // enable paging
 
-    char buf[512];
-    disk_read_sector(0, 1, buf);
 
 
     enable_interrupts();                // enable interrupts
