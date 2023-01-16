@@ -5,5 +5,6 @@
 #define EIO 1                           // error io
 #define EINVARG 2                       // invalid arguments
 #define ENOMEM 3                        // no memory available
+#define EBADPATH 4                      // bad path
 
 #endif //STATUS_H

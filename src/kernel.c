@@ -4,6 +4,8 @@
 #include "memory/heap/kheap.h"
 #include "memory/paging/paging.h"
 #include "disk/disk.h"
+#include "fs/pparser.h"
+#include "string/string.h"
 #include <stddef.h>
 #include <stdint.h>
 
@@ -42,14 +44,6 @@ void terminal_initialize() {
     }
 }
 
-size_t strlen(const char* str) {
-    size_t len = 0;
-    while(str[len]) {
-        len++;
-    }
-    return len;
-}
-
 void print(const char* str) {
     size_t len = strlen(str);
     for (int i = 0; i < len; i++) {
@@ -71,8 +65,11 @@ void kernel_main() {
     // switch to kernel_paging_chunk
     paging_switch(paging_4gb_chunk_get_directory(kernel_chunk));
     enable_paging();                    // enable paging
-
-
-
     enable_interrupts();                // enable interrupts
+
+    struct path_root* root_path = pathparser_parse("0:/bin/shell.bin", NULL);
+    if (root_path) {
+
+    }
+
 }
