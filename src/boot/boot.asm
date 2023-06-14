@@ -7,9 +7,9 @@ DATA_SEG equ gdt_data - gdt_start
 jmp short start
 nop
 
-; FAT16 header
+; FAT16 Header
 OEMIdentifier           db 'PEACHOS '
-BytesPerSector          dw 0x20
+BytesPerSector          dw 0x200
 SectorsPerCluster       db 0x80
 ReservedSectors         dw 200
 FATCopies               db 0x02
