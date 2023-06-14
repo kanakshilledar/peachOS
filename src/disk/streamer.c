@@ -38,7 +38,7 @@ int diskstreamer_read(struct disk_stream* stream, void* out, int total) {
     stream->pos += total_to_read;
     if (total > PEACHOS_SECTOR_SIZE) {
         // using recursion to read the whole disk
-        // TODO: Implement better strategy instead of recursion to avoid STACK OVERFLOW
+        // FIXME: Implement better strategy instead of recursion to avoid STACK OVERFLOW
         res = diskstreamer_read(stream, out, total-PEACHOS_SECTOR_SIZE);
     }
 
